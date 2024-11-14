@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+:root {
+    --primary-color: #1B98E0;
+    --secondary-color: #59c3c3;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: "Amatic SC";
+}
+
+body {
+    font-family: var(--primary-font);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 20px 0px;
+}
+
+header img{
+    width: 80px;
+}
+header h1{
+    font-size: 40px;
+    margin: 0;
+    margin-left: 10px;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+}
+
+main{
+    width: 100%;
+    display: block;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.search div{
+    width: 100%;
+    padding:0px 20px 0px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.search div input{
+    width: 100%;
+    max-width: 1130px;
+    height: 40px;
+    padding-left: 10px;
+    border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    -webkit-border-radius: 10px 0px 0px 10px;
+    border: 1px solid grey;
+}
+.search div button{
+    width: 50px;
+    height: 45px;
+    border-radius: 0px 10px 10px 0px;
+    -moz-border-radius: 0px 10px 10px 0px;
+    -webkit-border-radius: 0px 10px 10px 0px;
+    border: 1px solid grey;
+    cursor: pointer;
+}
+
+.search div button img{
+    width: 100%;
+}
+
+hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cont-recipes{
+    width: 99%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.recipe {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px 20px 20px 20px;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    display: flex;
+}
+.cont-img{
+    width: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+.cont-img img {
+    height: 250px;
+    padding: 15px;
+}
+.cont-info{
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+}
+.tags{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.tags span{
+    border: 1px solid grey;
+    padding: 10px;
+    margin: 5px;
+}
+.cont-info h2{
+    font-size: 35px;
+    color: var(--primary-color);
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 800;
+    margin: 0;
+}
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.social{
+    display: flex;
+    margin-right: 20px;
+}
+.social img{
+    width: 50px;
+    margin: 3px;
+}
+.attribution{
+    margin-left: 20px;
+}
+.attribution a{
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 690px) {
+    .recipe {
+        flex-wrap: wrap;
+    }
+    .cont-img img {
+        width: 95%;
+        height: auto;
+    }
+    footer {
+        flex-wrap: wrap;
+    }
+    footer div {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    .social{
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+    .attribution{
+        margin-left: 0px;
+    }
+}
