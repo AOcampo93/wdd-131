@@ -1,106 +1,74 @@
-// Se llama el JSON
-var requestURL = './js/portafolio.json';
-fetch(requestURL)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(jsonObject) {
-        console.table(jsonObject);
-        myobj = jsonObject;
-        //Le asigno una variable a una posición del JSON donde quiero que comience
-        var objJSON = myobj.Portafolio;
+import portafolio from './portafolio.mjs';
 
-        //Este es el ID de contenedor que almacena los nuevos elementos que se escribirán con JS
-        let ulList = document.getElementById('listPortafolio');
+document.addEventListener("DOMContentLoaded", () => {
+    const ulList = document.getElementById('listPortafolio');
 
-        //Se generá un FOR para hacer una lista de todos los proyectos
-        for (var i = 0; i < objJSON.length; i++) {
+    // Generar lista de proyectos
+    portafolio.forEach((project, index) => {
+        const lista = document.createElement('li');
+        const ancla = document.createElement('a');
 
-            // Se crean los elemento nuevos
-            let lista = document.createElement('li');
-            let ancla = document.createElement('a');
+        ancla.textContent = project.list;
+        ancla.setAttribute('onclick', `showProject(${index})`);
 
-            // Al elemento ancla se le escribe la info de JSON
-            ancla.textContent = objJSON[i].list;
-            // Al elemento ANCLA se le genera un Onclick llamando una función
-            ancla.setAttribute('onclick', 'showProject(' + i + ')');
+        lista.appendChild(ancla);
+        ulList.appendChild(lista);
+    });
+});
 
-            //Se organizan los elementos JS
-            lista.appendChild(ancla);
-            ulList.appendChild(lista);
-        }
+// Mostrar detalles del proyecto seleccionado
+window.showProject = (projectIndex) => {
+    const project = portafolio[projectIndex];
+
+    document.getElementById('title-project').innerHTML = project.Title;
+    document.getElementById('description-project').innerHTML = project.Description;
+    document.getElementById('img-portfolio').src = project.imgPrincipalURL;
+
+    const toolList = document.getElementById('toolList');
+    const contBtn = document.getElementById('cont-btn');
+
+    // Limpiar elementos previos
+    toolList.innerHTML = '';
+    contBtn.innerHTML = '';
+
+    // Añadir herramientas
+    project.Tools.forEach(tool => {
+        const imgTools = document.createElement('img');
+        imgTools.setAttribute('class', 'tool');
+        imgTools.src = tool.imgUrl;
+        toolList.appendChild(imgTools);
     });
 
+    // Botón para el enlace del sitio web
+    const btnLink = document.createElement('button');
+    btnLink.textContent = "See the site";
+    btnLink.setAttribute('onclick', `window.open('${project.link}', '_blank')`);
+    contBtn.appendChild(btnLink);
 
-function showProject(project) {
-    var requestURL = './js/portafolio.json';
-    fetch(requestURL)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(jsonObject) {
-            console.table(jsonObject);
-            myobj = jsonObject;
+    // Botón para el video (si existe)
+    if (project.Video && project.Video.trim() !== "") {
+        const videoBtn = document.createElement('button');
+        videoBtn.textContent = "See Video";
+        contBtn.appendChild(videoBtn);
 
-            // Se vuelve a llamar el objeto JSON
-            var objJSON = myobj.Portafolio;
-
-            // Se escribe en los campos correspondientes la información del proyecto
-            document.getElementById('title-project').innerHTML = objJSON[project].Title;
-            document.getElementById('description-project').innerHTML = objJSON[project].Description;
-            document.getElementById('img-portfolio').src = objJSON[project].imgPrincipalURL;
-
-            // ID del contenedor de herramientas
-            let toolList = document.getElementById('toolList');
-            let tools = objJSON[project].Tools;
-
-            // Elimina elementos existentes para evitar duplicados
-            $("img").remove(".tool");
-            $("button").remove("#btn-link");
-            $("button").remove("#btn-video");
-
-            // Añade las imágenes de herramientas
-            for (var j = 0; j < tools.length; j++) {
-                let imgTools = document.createElement('img');
-                imgTools.setAttribute('class', 'tool');
-                imgTools.src = tools[j].imgUrl;
-                toolList.appendChild(imgTools);
-            }
-
-            // Crea el botón para el enlace del sitio web
-            let contBtn = document.getElementById('cont-btn');
-            let btn = document.createElement('button');
-            btn.textContent = "See the site";
-            btn.setAttribute('onclick', 'window.open("' + objJSON[project].link + '", "_blank")');
-            btn.setAttribute('id', 'btn-link');
-            contBtn.appendChild(btn);
-
-            // Si hay un campo "Video" válido, crea el botón para abrir el modal
-            if (objJSON[project].Video && objJSON[project].Video.trim() !== "") {
-                let videoBtn = document.createElement('button');
-                videoBtn.textContent = "See Video";
-                videoBtn.setAttribute('id', 'btn-video');
-                contBtn.appendChild(videoBtn);
-
-                videoBtn.addEventListener('click', function() {
-                    // Muestra el modal y establece la URL del video
-                    document.getElementById('videoIframe').src = objJSON[project].Video;
-                    document.getElementById('videoModal').style.display = 'block';
-                });
-            }
-
-            // Cierra el modal cuando se hace clic en la "X"
-            document.getElementById('closeModal').addEventListener('click', function() {
-                document.getElementById('videoModal').style.display = 'none';
-                document.getElementById('videoIframe').src = ''; // Limpia la URL del iframe para detener el video
-            });
-
-            // Cierra el modal cuando se hace clic fuera del contenido
-            window.onclick = function(event) {
-                if (event.target == document.getElementById('videoModal')) {
-                    document.getElementById('videoModal').style.display = 'none';
-                    document.getElementById('videoIframe').src = ''; // Limpia la URL del iframe para detener el video
-                }
-            };
+        videoBtn.addEventListener('click', () => {
+            document.getElementById('videoIframe').src = project.Video;
+            document.getElementById('videoModal').style.display = 'block';
         });
-}
+    }
+
+    // Eventos para cerrar el modal
+    const closeModal = document.getElementById('closeModal');
+    closeModal.addEventListener('click', () => {
+        document.getElementById('videoModal').style.display = 'none';
+        document.getElementById('videoIframe').src = ''; // Detener el video
+    });
+
+    window.onclick = (event) => {
+        const videoModal = document.getElementById('videoModal');
+        if (event.target == videoModal) {
+            videoModal.style.display = 'none';
+            document.getElementById('videoIframe').src = ''; // Detener el video
+        }
+    };
+};
