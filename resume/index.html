@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Mis Estilos-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/MisEstilos.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <!--Favicon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Arturo Ocampo | Resume</title>
+</head>
+
+<body>
+    <header data-aos="zoom-in-down">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/AOH.png" alt="Arturo Ocampo | AOH">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="Menu collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Resume<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portafolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.php">Contact me</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--Primera Sección-->
+    <div class="Container-Img">
+    </div>
+    <div class="Container-Text">
+        <div>
+            <h6>Web Design & Developer</h6>
+            <h1>Arturo Ocampo</h1>
+            <p>Welcome to my site. Here you can find info about me and the things that I can do, my resume, portfolio, skills, education, and experience.</p>
+            <button type="button" class="btn btn-white-outline" onclick="location.href='portafolio.html'">See portfolio</button>
+        </div>
+    </div>
+    <!--Segunda Sección-->
+    <section id="SubMenu">
+        <ul>
+            <li><a href="#AcercaDeMi">About Me</a></li>
+            <div class="LineaVertical"></div>
+            <li><a href="#Habilidades">My Skills</a></li>
+            <div class="LineaVertical"></div>
+            <li><a href="#Experiencia">Education & Experience</a></li>
+        </ul>
+    </section>
+    <section id="AcercaDeMi">
+        <div>
+            <h3>About me</h3>
+            <p> I have more than 3 years of experience in web design and development. Planning the site flow and the user's journey until designing the appearance (mockups) and developing the front and back of the site using HTML, CSS, SCSS, JavaScript, PHP,
+                Databases with MySQL, Bootstrap, Angular, and GitHub. Following the standards like the MVC architecture to design a site. I have experience working on a team and working remotely. Also, I worked with big brands like Little Caesars developing
+                some sites.</p>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="Habilidades">
+        <div class="row">
+            <div class="col-12">
+                <h3>My skills</h3>
+                <p></p>
+            </div>
+            <div class="row ContenedorHabilidades" id="ContenedorHabilidades"></div>
+        </div>
+    </section>
+    <section id="Experiencia" class="container-fluid">
+        <div class="container">
+            <div class="titulos row">
+                <h3>Education & Experience</h3>
+            </div>
+            <div class="lineaMobile row flexCenter">
+                <div class="linea"></div>
+                <div class="cont-exp-edu" id="cont-exp-edu" data-aos="fade-up"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--MisScripts-->
+    <script src="js/MisScripts.js"></script>
+    <script src="js/Habilidades.js"></script>
+    <script src="js/Exp-Edu.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        var fecha = new Date();
+        var dia = fecha.getDate();
+        var mes = fecha.getMonth();
+        var year = fecha.getFullYear();
+
+        var edad = year - 1993;
+        if (mes <= 8) {
+            document.getElementById('edad').innerHTML = edad - 1;
+        } else {
+            document.getElementById('edad').innerHTML = edad;
+        }
+    </script>
+</body>
+
+</html>
